@@ -1,0 +1,13 @@
+ int ht(TreeNode* temp, int& ans){
+        if(temp==NULL)return 0;
+        int left,right;
+        left=ht(temp->left,ans);
+        right=ht(temp->right,ans);
+        ans=max(ans,left+right);
+        return 1+max(left,right);
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ans=0;
+      ht(root,ans);
+        return ans;
+    }
